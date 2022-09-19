@@ -2,8 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
+const {REACT_APP_API_KEY} = process.env
+
 const Photos = () => {
-    const url = `https://api.nasa.gov/planetary/apod?api_key=MgpzOJbZSi85udfLxp7HTYbWVJW73XhxzNPbphDa`
+    const url = `https://api.nasa.gov/planetary/apod?api_key=${REACT_APP_API_KEY}`
     const [ photos, setPhotos ] = useState([])
     const getPhoto = async () => {
         const response = await fetch(url);
