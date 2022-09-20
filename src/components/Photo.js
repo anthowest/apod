@@ -1,5 +1,7 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React from 'react';
+import { useState, useEffect } from 'react';
+import Nav from './Nav';
+import Header from './Header';
 
 const {REACT_APP_API_KEY} = process.env
 
@@ -20,6 +22,8 @@ const Photos = () => {
 
     return (
         <>
+        <Header />
+        <Nav />
             <div className='nasa-photo'>
                 <img src={photos.url} alt={photos.title} className='photo' />
                 <div>
