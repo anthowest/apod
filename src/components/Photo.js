@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 const {REACT_APP_API_KEY} = process.env
@@ -17,14 +16,18 @@ const Photos = () => {
         getPhoto()
     }, []);
 
+    if (!photos) return <div />
+
     return (
         <>
-            <div>
-                <h2>{photos.title}</h2>
-                <img src={photos.url} alt={photos.title} />
-                <p>Date: {photos.date}</p>
-                <p>Copyright: {photos.copyright}</p>
-                <p>{photos.explanation}</p>
+            <div className='nasa-photo'>
+                <img src={photos.url} alt={photos.title} className='photo' />
+                <div>
+                    <h2>{photos.title}</h2>
+                    <p className='date'>{photos.date}</p>
+                    <p>Copyright: {photos.copyright}</p>
+                    <p className='explanation'>{photos.explanation}</p>
+                </div>
             </div>
         </>
     )
