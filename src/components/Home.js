@@ -4,10 +4,12 @@ import Header from "./Header";
 
 const Home = () => {
     return (
-        <div>
+        <>
             <Header />
-            <Link to='/apod'>Beam Me Up</Link>
-        </div>
+            <div className="home">
+                <Link className="home-link" to='/apod'>Beam Me Up</Link>
+            </div>
+        </>
     )
 }
 

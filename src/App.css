@@ -16,7 +16,7 @@ body {
   border-radius: 10px;
   max-width: 50%;
   margin-right: 50px;
-  height: auto;
+  height: 75vh;
   object-fit: contain;
 }
 
@@ -27,7 +27,7 @@ body {
 
 .nasa-photo .date {
   margin-top: 0;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .app-title {
@@ -36,4 +36,25 @@ body {
    
 }
 
+.nav {
+  display: flex;
+  background: black;
+  justify-content: center;
+  align-items: center;
+}
+
+.home {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-link {
+  font-size: 30px;
+  background: purple;
+  color: white;
+  padding: 40px 80px;
+  border-radius: 50%;
+}
 
