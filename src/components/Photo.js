@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Nav from './Nav';
 import Header from './Header';
+import PrevPhoto from './PrevPhoto';
 
 const {REACT_APP_API_KEY} = process.env
 
@@ -18,7 +19,7 @@ const Photos = () => {
         getPhoto()
     }, []);
 
-    if (!photos) return <div />
+    if (!photos) return <div>No Photo For Today</div>
 
     return (
         <>
@@ -29,10 +30,11 @@ const Photos = () => {
                 <div>
                     <h2>{photos.title}</h2>
                     <p className='date'>{photos.date}</p>
-                    <p>Copyright: {photos.copyright}</p>
+                    <p>{photos.copyright}</p>
                     <p className='explanation'>{photos.explanation}</p>
                 </div>
             </div>
+        <PrevPhoto />  
         </>
     )
 }

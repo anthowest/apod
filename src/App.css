@@ -3,6 +3,9 @@
 body {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 18px;
+  /* background-color: black; */
+  /* background-image: url("https://www.freepik.com/free-photo/space-galaxy-background_4414004.htm#query=space%20background&position=1&from_view=keyword"); */
+  background-size: cover;
 }
 
 .nasa-photo {
@@ -23,6 +26,7 @@ body {
 .nasa-photo h2 {
   margin-top: 0;
   margin-bottom: 30px;
+  color: #224855;
 }
 
 .nasa-photo .date {
@@ -30,17 +34,34 @@ body {
   margin-bottom: 10px;
 }
 
+/* .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
 .app-title {
-  text-align: center;
-  margin-top: 20px
-   
+  display: flex;
+  background: #224855;
+  padding: 10px 20px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 0;
 }
 
 .nav {
   display: flex;
-  background: black;
+  background-color: #7e8489;
   justify-content: center;
   align-items: center;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 10px 10px;
+  color: white;
+  font-size: 18px;
 }
 
 .home {
@@ -52,7 +73,7 @@ body {
 
 .home-link {
   font-size: 30px;
-  background: purple;
+  background: #235c4b;
   color: white;
   padding: 40px 80px;
   border-radius: 50%;
