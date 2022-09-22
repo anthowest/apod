@@ -1,15 +1,17 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const {REACT_APP_API_KEY} = process.env
 
 const PrevPhoto = () => {
     let today = new Date().toISOString().slice(0, 10)
     // console.log(today)
+    const [apiData, setApiData] = useState(null)
     const [day, setDay] = useState(today)
 
-    function findPrevDay() {
-        console.log(day)
+    async function findPrevDay() {
+        // console.log(day)
         const splitDate = day.split("-");
         let [year, month, date] = splitDate;
         year = Number(year);
@@ -28,22 +30,31 @@ const PrevPhoto = () => {
 
         const previous = [year, month, date].join('-');
         console.log(previous)
-        setDay(previous)
+        await setDay(previous)
+        updateDay();
     }
 
     async function updateDay() {
         const url = `https://api.nasa.gov/planetary/apod?api_key=${REACT_APP_API_KEY}&date=${day}`
+        // const [ page, setPage ] = 
         const response = await fetch (url);
         const data = await response.json();
         console.log(data)
+        setApiData(data)
     }
-    useEffect(() => {
-        updateDay();
-    }, [day]);
+    // useEffect(() => {
+    //     updateDay();
+    // }, [day]);
+
+    // useEffect(() => {
+    //     findPrevDay(day)
+    // }, [])
     return (
         <>
+        {apiData ? <p>Here is data</p> : <p>No data to display</p>}
         <button onClick={() => findPrevDay(day)}>Previous Day</button>
-        {/* <a href={`/apod/${findPrevDay(day)}`}>Prev Day</a> */}
+        
+        {/* <Link className="prev-link" to={`/${day -1}`}>Prev Day</Link> */}
         </>
     )
 }
