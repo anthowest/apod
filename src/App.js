@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/apod/' element={<Photos />}/>
-        <Route path='/:previousday/' element={<PrevPhoto />}/>
+        <Route path='/previous/:previousDay' element={<PrevPhoto />}/>
       </Routes>
     </div>
   );

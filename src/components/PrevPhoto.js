@@ -1,17 +1,20 @@
 import React from 'react';
+import Nav from './Nav';
+import Header from './Header';
 import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
 const {REACT_APP_API_KEY} = process.env
 
 const PrevPhoto = () => {
-    let today = new Date().toISOString().slice(0, 10)
-    // console.log(today)
-    const [apiData, setApiData] = useState(null)
-    const [day, setDay] = useState(today)
+    const {previousDay} = useParams()
+    const next = findPrevDay(previousDay)
+    console.log(next)
+    const [day, setDay] = useState(previousDay)
+    const [apiData, setApiData ] = useState(null)
 
-    async function findPrevDay() {
-        // console.log(day)
-        const splitDate = day.split("-");
+    function findPrevDay(currentDate) {
+        const splitDate = currentDate.split("-");
         let [year, month, date] = splitDate;
         year = Number(year);
         month = Number(month);
@@ -28,9 +31,7 @@ const PrevPhoto = () => {
         }
 
         const previous = [year, month, date].join('-');
-        console.log(previous)
-        await setDay(previous)
-        updateDay();
+        return previous
     }
 
     async function updateDay() {
@@ -39,12 +40,32 @@ const PrevPhoto = () => {
         const data = await response.json();
         console.log(data)
         setApiData(data)
+        console.log('current day', day)
     }
+    useEffect(() => {
+        setDay(previousDay)
+    }, [previousDay])
+
+    useEffect(() => {
+        updateDay();
+    }, [day])
 
     return (
         <>
-        {apiData ? <p>Here is data</p> : <p>No data to display</p>}
-        <button onClick={() => findPrevDay(day)}>Previous Day</button>
+        <Header />
+        <Nav />
+        <div>{apiData && 
+            <div className='nasa-photo'>
+                <img src={apiData.url} alt={apiData.title} className='photo' />
+                <div>
+                    <h2>{apiData.title}</h2>
+                    <p className='date'>{apiData.date}</p>
+                    <p>{apiData.copyright}</p>
+                    <p className='explanation'>{apiData.explanation}</p>
+                </div>
+            </div>}
+        </div>
+        <Link to={`/previous/${next}`}>See previous day</Link>
         </>
     )
 }
