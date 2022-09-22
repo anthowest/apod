@@ -1,23 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 
-.App {
-  text-align: center;
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  /* background-color: black; */
+  /* background-image: url("https://www.freepik.com/free-photo/space-galaxy-background_4414004.htm#query=space%20background&position=1&from_view=keyword"); */
+  background-size: cover;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nasa-photo {
   display: flex;
-  flex-direction: column;
+  padding: 40px;
+  margin: 0 auto;
+  max-height: 100%;
+}
+
+.nasa-photo img {
+  border-radius: 10px;
+  max-width: 50%;
+  margin-right: 50px;
+  height: 75vh;
+  object-fit: contain;
+}
+
+.nasa-photo h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #224855;
+}
+
+.nasa-photo .date {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* .header {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+} */
+
+.app-title {
+  display: flex;
+  background: #224855;
+  padding: 10px 20px;
+  align-items: center;
+  justify-content: center;
   color: white;
+  margin-bottom: 0;
 }
 
-img {
-  border-radius: 10px;
-  max-width: 100%;
-  height: auto;
+.nav {
+  display: flex;
+  background-color: #7e8489;
+  justify-content: center;
+  align-items: center;
 }
 
+.nav-link {
+  display: inline-block;
+  padding: 10px 10px;
+  color: white;
+  font-size: 18px;
+}
+
+.home {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-link {
+  font-size: 30px;
+  background: #235c4b;
+  color: white;
+  padding: 40px 80px;
+  border-radius: 50%;
+}
 
