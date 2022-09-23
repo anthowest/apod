@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const {REACT_APP_API_KEY} = process.env
 
 function findPrevDay(currentDate) {
-    const splitDate = currentDate.split('-');
+    const splitDate = currentDate.split(' - ');
     let [year, month, date] = splitDate;
     year = Number(year);
     month = Number(month);
