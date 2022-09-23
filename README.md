@@ -96,3 +96,4 @@ To get started, click the app link above. Once site loads, click 'Beam Me Up' to
 - Utilize Bootstrap to create a carousel.
 - Include Search functionality
 - Include a link to go back to the future date's photos.
+- Make it mobile friendly.
