@@ -56,8 +56,21 @@ const PrevPhoto = () => {
         <Nav />
         <div>{apiData && 
             <div className='nasa-photo'>
+                {apiData.media_type === 'image' ? (
                 <img src={apiData.url} alt={apiData.title} className='photo' />
-                <div>
+                ) : (
+                    <div className='wrap-element'>
+                    <iframe
+                    className='wrapped-iframe'
+                    title='space-video'
+                    src={apiData.url}
+                    frameBorder='0'
+                    allow='encrypted-media'
+                    allowFullScreen
+                    />
+                    </div>
+                )}
+                <div className='nasa-details'>
                     <h2>{apiData.title}</h2>
                     <p className='date'>{apiData.date}</p>
                     <p>{apiData.copyright}</p>
@@ -65,7 +78,7 @@ const PrevPhoto = () => {
                 </div>
             </div>}
         </div>
-        <Link to={`/previous/${next}`}>See previous day</Link>
+        <Link className='prev-link' to={`/previous/${next}`}>See previous day</Link>
         </>
     )
 }

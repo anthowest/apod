@@ -50,7 +50,18 @@ const Photos = () => {
         <Header />
         <Nav />
             <div className='nasa-photo'>
+                {photos.media_type === 'image' ? (
                 <img src={photos.url} alt={photos.title} className='photo' />
+                ) : (
+                    <iframe
+                    title='space-video'
+                    src={photos.url}
+                    frameBorder='0'
+                    allow='encrypted-media'
+                    allowFullScreen
+                    className='photo'
+                    />
+                )}
                 <div>
                     <h2>{photos.title}</h2>
                     <p className='date'>{photos.date}</p>
@@ -58,7 +69,7 @@ const Photos = () => {
                     <p className='explanation'>{photos.explanation}</p>
                 </div>
             </div>
-        {prev ? <Link to={`/previous/${prev}`}>Find photos for {prev}</Link> : null }  
+        {prev ? <Link className='prev-link' to={`/previous/${prev}`}>Find photos for {prev}</Link> : null }  
         </>
     )
 }
