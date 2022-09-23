@@ -83,6 +83,8 @@ Code used to inject previous date into API to get previous day's data.
 - CSS (Flex)
 - HTML
 - JavaScript
+- Netlify
+- Postman
 
 ## API
 https://api.nasa.gov/
