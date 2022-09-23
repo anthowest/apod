@@ -9,7 +9,6 @@ const {REACT_APP_API_KEY} = process.env
 const PrevPhoto = () => {
     const {previousDay} = useParams()
     const next = findPrevDay(previousDay)
-    console.log(next)
     const [day, setDay] = useState(previousDay)
     const [apiData, setApiData ] = useState(null)
 
@@ -38,9 +37,7 @@ const PrevPhoto = () => {
         const url = `https://api.nasa.gov/planetary/apod?api_key=${REACT_APP_API_KEY}&date=${day}`
         const response = await fetch (url);
         const data = await response.json();
-        console.log(data)
         setApiData(data)
-        console.log('current day', day)
     }
     useEffect(() => {
         setDay(previousDay)
