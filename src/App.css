@@ -99,6 +99,13 @@ body {
   padding: 10px 10px;
   color: white;
   font-size: 18px;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  text-transform: uppercase;
+  color: white;
 }
 
 .home {
@@ -109,8 +116,18 @@ body {
 
 }
 
+.prev-link {
+  text-decoration: none;
+  color: white;
+  text-transform: lowercase;
+}
+
+.prev-link:hover {
+  color: white;
+  text-transform: uppercase;
+}
+
 .home-link {
-  color:rgba(60, 39, 185, 1);
   text-decoration: none;
   color: white;
   font-size: 50px;
@@ -138,7 +155,6 @@ body {
 
 .home-link:hover {
   background-size: 0 3px, 100% 3px;
-  color:rgba(60, 39, 185, 1);
   color: white;
   text-transform: uppercase;
 }

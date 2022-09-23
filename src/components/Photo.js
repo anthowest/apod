@@ -69,7 +69,7 @@ const Photos = () => {
                     <p className='explanation'>{photos.explanation}</p>
                 </div>
             </div>
-        {prev ? <Link className='prev-link' to={`/previous/${prev}`}>Find photos for {prev}</Link> : null }  
+        {prev ? <Link className='prev-link' to={`/previous/${prev}`}>See previous day: {prev}</Link> : null }  
         </>
     )
 }
