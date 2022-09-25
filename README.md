@@ -16,18 +16,18 @@ This app allows a user to view the current date's NASA Astronomy Photo of the Da
 
 ![NASA (1)](https://user-images.githubusercontent.com/73357380/191969392-332bc016-904f-401f-aa20-3d0678e4e147.png)
 
-### Screenshots
+## Screenshots
 
-#### Home Page
+### Home Page
 ![Screen Shot 2022-09-23 at 8 21 06 AM](https://user-images.githubusercontent.com/73357380/191969586-481ae0bb-4052-4c9d-b1e1-6e815ff26168.png)
 - User clicks "Beam Me Up" to go to the show page.
 
-#### Show Page
+### Show Page
 ![Screen Shot 2022-09-23 at 8 23 25 AM](https://user-images.githubusercontent.com/73357380/191970069-9f6036c9-59f8-436d-9d01-5b6bb4c017b4.png)
 - User is able to view today's photo. 
 - User is able to click 'See Previous Day...' to move to the previous days' photos.
 
-### Code Examples
+## Code Examples
 
 ``` const PrevPhoto = () => {
     const {previousDay} = useParams()
@@ -78,7 +78,7 @@ async function updateDay() {
 ```
 Code used to inject previous date into API to get previous day's data.
 
-### Technologies Used
+## Technologies Used
 - REACT.js
 - CSS (Flex)
 - HTML
