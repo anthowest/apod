@@ -1,6 +1,6 @@
 # NASA - Astronomy Photo of the Day
 
-This app view NASA's Astronomy Photo of the Day. 
+This app views NASA's Astronomy Photo of the Day using NASA's API. 
 
 ## App Description
 
