@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Nav from './Nav';
 import Header from './Header';
 import { Link } from 'react-router-dom';
@@ -31,17 +31,19 @@ const Photos = () => {
     const url = `https://api.nasa.gov/planetary/apod?api_key=${REACT_APP_API_KEY}`
     const [ photos, setPhotos ] = useState([])
     const [ prev, setPrevious ] = useState(null)
-    const getPhoto = async () => {
+    const getPhoto = useCallback(async () => {
         const response = await fetch(url);
         const data = await response.json();
         setPhotos(data)
         setPrevious(findPrevDay(data.date))
-    }
+    }, [])
     useEffect(() => {
         getPhoto()
-    }, []);
+    }, [getPhoto]);
 
-    if (!photos) return <div>No Photo For Today</div>
+    if (!photos) {
+        return <div>No Photo For Today</div>
+    }
 
     return (
         <>
