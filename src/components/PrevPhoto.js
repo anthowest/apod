@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from './Nav';
 import Header from './Header';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 const {REACT_APP_API_KEY} = process.env
@@ -34,21 +34,21 @@ const PrevPhoto = () => {
         return previous
     }
 
-    async function updateDay() {
+    const updateDay = useCallback(async () => {
         const url = `https://api.nasa.gov/planetary/apod?api_key=${REACT_APP_API_KEY}&date=${day}`
         const response = await fetch (url);
         const data = await response.json();
         console.log(data)
         setApiData(data)
         console.log('current day', day)
-    }
+    }, [day])
     useEffect(() => {
         setDay(previousDay)
     }, [previousDay])
 
     useEffect(() => {
         updateDay();
-    }, [day])
+    }, [updateDay])
 
     return (
         <>
