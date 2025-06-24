@@ -13,25 +13,31 @@ const PrevPhoto = () => {
     const [apiData, setApiData ] = useState(null)
 
     function findPrevDay(currentDate) {
-        const splitDate = currentDate.split("-");
-        let [year, month, date] = splitDate;
-        year = Number(year);
-        month = Number(month);
-        date = Number(date);
-        if (date === 1 && month === 1) {
-            date = 31;
-            month = 12;
-            year -= 1;
-        } else if (date - 1 === 0) {
-            date = '31';
-            month = month - 1;
-        } else {
-            date -= 1;
-        }
+    //     const splitDate = currentDate.split("-");
+    //     let [year, month, date] = splitDate;
+    //     year = Number(year);
+    //     month = Number(month);
+    //     date = Number(date);
+    //     if (date === 1 && month === 1) {
+    //         date = 31;
+    //         month = 12;
+    //         year -= 1;
+    //     } else if (date - 1 === 0) {
+    //         date = '31';
+    //         month = month - 1;
+    //     } else {
+    //         date -= 1;
+    //     }
 
-        const previous = [year, month, date].join('-');
-        return previous
-    }
+    //     const previous = [year, month, date].join('-');
+    //     return previous
+    // }
+    const date = new Date(currentDate);
+    date.setDate(date.getDate() - 1);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
 
     async function updateDay() {
         const url = `https://api.nasa.gov/planetary/apod?api_key=${REACT_APP_API_KEY}&date=${day}`
